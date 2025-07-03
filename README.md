@@ -61,10 +61,10 @@ Open the `.html` file in a text editor.
 Look for this line near the top:
 
 ```js
-const PAYDAY_DATE = 28; // Change this to your payday
+const PAYDAY_DATE = 1; // Change this to your payday
 ```
 
-Change `28` to whatever day your salary hits.
+Change `1` to whatever day your salary hits.
 
 ---
 
@@ -75,18 +75,9 @@ Also... your wallpaper shouldn’t be boring.
 
 ---
 
-## 🚀 Coming Soon?
-
-- 🟢 Progress ring?
-- 🌗 Dark-to-light gradient transitions?
-- 🤝 Community quote contributions?
-- 💡 [Your ideas here →](https://github.com/your-username/motivator-wallpaper/issues)
-
----
-
 ## 🧠 Author
 
-Built by [@yourusername](https://github.com/yourusername)  
+Built by [@IdoMunthe](https://github.com/IdoMunthe)  
 Inspired by coffee, deadlines, and survival.
 
 > 💡 "You are not poor. You're pre-rich."
