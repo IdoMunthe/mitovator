@@ -43,10 +43,9 @@ You need [Lively Wallpaper](https://rocksdanister.github.io/lively/) — a free,
    ```
 
 2. **Open Lively Wallpaper**  
-   Click **"Add Wallpaper"** → **"Browse"** → navigate to either:
+   Click **"Add Wallpaper"** → **"Browse"** → navigate to:
 
    - `developers/payday-countdown-wallpaper.html`
-   - `non-developers/payday-countdown-wallpaper.html`
 
 3. **Enjoy the Motivation!**  
    Watch your screen update every hour with quotes, countdown to payday, and surprise confetti on payday.
