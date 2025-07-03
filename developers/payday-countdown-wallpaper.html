@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Days Until Payday</title>
+  <style>
+    :root {
+      --bg-soft-black: #121212;
+      --text-white: #f2f2f2;
+      --text-soft-black: #222222;
+      --bg-white: #fdfdfd;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-soft-black);
+      color: var(--text-white);
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    #countdown {
+      font-size: 8rem;
+      font-weight: bold;
+      color: var(--text-white);
+      margin-bottom: 1rem;
+    }
+
+    #motivator {
+      font-size: 1.5rem;
+      color: var(--text-white);
+      font-style: italic;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-24px);
+      }
+    }
+
+    #countdown {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="h1">💸Days until payday💸</h1>
+
+  <div id="countdown">0</div>
+  <div id="motivator">loading motivation...</div>
+
+  <canvas class="confetti" id="confettiCanvas"></canvas>
+
+  <script>
+    // Change this to your payday (e.g., 25 or 30)
+    const PAYDAY = 1;
+
+    // You can add your own motivations words if you want
+    const motivators = [
+      "You’ve got this! 💪",
+      "They don’t know me, son!",
+      "You are *this* close 🤏",
+      "Code like nobody's watching 👨‍💻",
+      "That coffee won’t drink itself ☕",
+      "Make money, not excuses 🤑",
+      "Just 1 day closer to Nasi Padang 😎",
+      "Your ancestors are watching 👀",
+      "Debug like a boss 🧠",
+      "It’s called hustle, sweetheart.",
+      "One bug at a time...",
+      "Deploy and pray 🙏",
+      "Build now, nap later 😴",
+      "Don’t get fired. Yet.",
+      "Imagine your boss seeing this.",
+      "You're not poor, you're pre-rich.",
+      "You're not tired, you're pre-motivated.",
+      "That laptop isn't gonna close itself.",
+      "Salary is near. So is burnout 😅",
+      "Keep going. Pretend you love it.",
+      "This is fine 🔥🐶",
+      "You'll laugh about this. Maybe.",
+      "Hey, at least it's not Monday.",
+      "Hold the line, soldier.",
+      "The deadline isn’t real anyway.",
+      "You are inevitable. Like bugs.",
+      "Think of the dopamine on payday.",
+      "Don’t let your memes be dreams.",
+      "They can’t fire all of us. Right?",
+      "Just push it to prod... what's the worst that could happen? 🤡",
+      "You either die fixing a bug, or live long enough to write legacy code.",
+      "It's not a bug, it's a feature 🐞✨",
+      "If it compiles, ship it 🚢",
+      "You broke it? You own it.",
+      "There’s no problem a restart can’t solve.",
+      "You’re the hero this repo deserves.",
+      "Stay calm and blame the frontend 😎",
+      "Rubber duck doesn’t approve your logic.",
+      "No tests. No fear. No job security.",
+      "You ever just... console.log your feelings?",
+      "If it works, don’t touch it!",
+      "Real devs don’t read docs.",
+      "Time to become a StackOverflow archaeologist 🪦",
+      "Pull request vibes: 'pls don't review too hard 🙈'",
+      "Git commit -m 'idk lol'",
+      "Your code is working because you sacrificed sleep.",
+      "That function? Ancient black magic.",
+      "99 bugs in the code, take one down, 127 bugs in the code.",
+      "Today’s productivity brought to you by caffeine and panic.",
+      "Be proud. You made it compile.",
+      "Behind every great dev is 3,129 tabs open.",
+      "Do it for the merge badge 🥇"
+    ];
+
+
+    const countdownEl = document.getElementById("countdown");
+    const motivatorEl = document.getElementById("motivator");
+    const h1 = document.getElementById("h1")
+
+    function refreshMotivator() {
+      const now = new Date();
+      if (now.getDate() === PAYDAY) return;
+      const randomMotivator = motivators[Math.floor(Math.random() * motivators.length)];
+      motivatorEl.textContent = randomMotivator;
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth();
+      const payday = new Date(year, month, PAYDAY);
+      if (now.getDate() > PAYDAY) payday.setMonth(payday.getMonth() + 1);
+
+      const body = document.body;
+
+      if (now.getDate() === PAYDAY) {
+        body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-white');
+        body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-soft-black');
+        countdownEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-soft-black');
+        motivatorEl.style.display = "none";
+        h1.style.display = "none";
+        countdownEl.textContent = "Today's payday 🔥🔥";
+        startConfetti();
+      } else {
+        const diff = payday - now;
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        countdownEl.textContent = days;
+        body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-soft-black');
+        body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-white');
+        countdownEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-white');
+        motivatorEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-white');
+        motivatorEl.style.display = "block";
+      }
+    }
+
+    updateCountdown();
+    refreshMotivator();
+
+    const now = new Date();
+    const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1) - now;
+    setTimeout(() => {
+      updateCountdown();
+      setInterval(updateCountdown, 1000 * 60 * 60 * 24);
+    }, msUntilMidnight);
+
+    setInterval(refreshMotivator, 1000 * 60 * 60);
+
+    function startConfetti() {
+      const canvas = document.getElementById("confettiCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      let particles = [];
+
+      function createParticle() {
+        return {
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 6 + 4,
+          dx: Math.random() * 4 - 2,
+          dy: Math.random() * 4 + 2,
+          color: `hsl(${Math.random() * 360}, 70%, 60%)`
+        };
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+      }
+
+      function update() {
+        particles.forEach(p => {
+          p.x += p.dx;
+          p.y += p.dy;
+          if (p.y > canvas.height) {
+            p.y = 0;
+            p.x = Math.random() * canvas.width;
+          }
+        });
+      }
+
+      function animate() {
+        draw();
+        update();
+        requestAnimationFrame(animate);
+      }
+
+      function launchConfetti() {
+        particles = Array.from({ length: 100 }, createParticle);
+      }
+
+      launchConfetti();
+      animate();
+      setInterval(() => launchConfetti(), 5000);
+    }
+  </script>
+</body>
+
+</html>
