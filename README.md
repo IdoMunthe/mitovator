@@ -79,5 +79,3 @@ Also... your wallpaper shouldn’t be boring.
 
 Built by [@IdoMunthe](https://github.com/IdoMunthe)  
 Inspired by coffee, deadlines, and survival.
-
-> 💡 "You are not poor. You're pre-rich."
