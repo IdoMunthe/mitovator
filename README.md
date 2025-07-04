@@ -60,7 +60,7 @@ Open the `.html` file in a text editor.
 Look for this line near the top:
 
 ```js
-const PAYDAY_DATE = 1; // Change this to your payday
+const PAYDAY_DATE = 1;
 ```
 
 Change `1` to whatever day your salary hits.
