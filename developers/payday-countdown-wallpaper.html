@@ -207,8 +207,8 @@
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             r: Math.random() * 6 + 4,
-            dx: Math.random() * 1 - 0.5, // subtle side movement
-            dy: Math.random() * 1.5 + 1, // gentle downward
+            dx: Math.random() * 1 - 0.5,
+            dy: Math.random() * 1.5 + 1,
             color: `hsl(${Math.random() * 360}, 70%, 60%)`
           };
         }
@@ -228,13 +228,11 @@
             p.x += p.dx;
             p.y += p.dy;
 
-            // wrap around vertically
             if (p.y > canvas.height) {
               p.y = -10;
               p.x = Math.random() * canvas.width;
             }
 
-            // wrap around horizontally (optional)
             if (p.x > canvas.width) p.x = 0;
             if (p.x < 0) p.x = canvas.width;
           });
