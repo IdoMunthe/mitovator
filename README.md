@@ -1,4 +1,4 @@
-# 💸 Motivator: Payday Countdown Wallpaper
+# 💸Payday Countdown Wallpaper
 
 A motivational live wallpaper that counts down to your next payday — with an hourly short quotes to keep your spirit from crashing like a production server on Friday at 5 PM.
 
@@ -17,7 +17,7 @@ A motivational live wallpaper that counts down to your next payday — with an h
 ## 🛠️ How to Use
 
 ### 🧱 Requirements
-
+<a href="https://rocksdanister.github.io/lively/" >
 You need [Lively Wallpaper](https://rocksdanister.github.io/lively/){:target="_blank"}  — a free, open-source live wallpaper engine for Windows.
 
 ---
