@@ -17,8 +17,9 @@ A motivational live wallpaper that counts down to your next payday — with an h
 ## 🛠️ How to Use
 
 ### 🧱 Requirements
+
 <a href="https://rocksdanister.github.io/lively/" >
-You need [Lively Wallpaper](https://rocksdanister.github.io/lively/){:target="_blank"}  — a free, open-source live wallpaper engine for Windows.
+You need [Lively Wallpaper](https://www.rocksdanister.com/lively/)— a free, open-source live wallpaper engine for Windows.
 
 ---
 
