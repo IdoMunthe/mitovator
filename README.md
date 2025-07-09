@@ -24,12 +24,19 @@ You need [Lively Wallpaper](https://www.rocksdanister.com/lively/)— a free, op
 
 ### Setup Steps For Non-Developer
 
-1. **Navigate to 'non-developers' folder above and download the HTML file**
+1. **Navigate to 'non-developers' folder above, open the HTML file and download it!**
+![how-to-download image](image.png)
 
-2. **Open Lively Wallpaper**  
+2. **Edit your payday date**  
+   ```js
+   const PAYDAY = 28;
+   ```
+   Find this line (using Ctrl+F) and change the **28** to your payday date.
+
+3. **Open Lively Wallpaper**  
    Click **"Add Wallpaper"** → **"Browse"** → **"Choose" payday-countdown-wallpaper.html**
 
-3. **Enjoy the Motivation!**  
+4. **Enjoy the Motivation!**  
    Watch your screen update every hour with quotes, countdown to payday, and surprise confetti on payday.
 
 ---
@@ -42,28 +49,20 @@ You need [Lively Wallpaper](https://www.rocksdanister.com/lively/)— a free, op
    git clone https://github.com/your-username/motivator-wallpaper.git
    ```
 
-2. **Open Lively Wallpaper**  
+
+2. **Edit your payday date**  
+   ```js
+   const PAYDAY = 28;
+   ```
+   Find this line (using Ctrl+F) and change the **28** to your payday date.
+
+3. **Open Lively Wallpaper**  
    Click **"Add Wallpaper"** → **"Browse"** → navigate to:
 
    - `developers/payday-countdown-wallpaper.html`
 
-3. **Enjoy the Motivation!**  
+4. **Enjoy the Motivation!**  
    Watch your screen update every hour with quotes, countdown to payday, and surprise confetti on payday.
-
----
-
-## ⚙️ Customize
-
-### ✏️ Change Your Payday Date
-
-Open the `.html` file in a text editor.  
-Look for this line near the top:
-
-```js
-const PAYDAY = 1;
-```
-
-Change `1` to whatever day your salary hits.
 
 ---
 
@@ -76,5 +75,5 @@ Also... your wallpaper shouldn’t be boring.
 
 ## 🧠 Author
 
-Built by [@IdoMunthe](https://github.com/IdoMunthe)  
+Built by [@IdoMunthe](http://linkedin.com/in/idomunthe)  
 Inspired by coffee, deadlines, and survival.
