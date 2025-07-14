@@ -1,6 +1,6 @@
 # 💸Payday Countdown Wallpaper
 
-A motivational live wallpaper that counts down to your next payday — with an hourly short quotes to keep your spirit from crashing like a production server on Friday at 5 PM.
+A motivational live wallpaper that counts down to your next payday — with an hourly short quotes to give you a lil bit of dopamine boost every now and then.
 
 ---
 
@@ -8,7 +8,7 @@ A motivational live wallpaper that counts down to your next payday — with an h
 
 - 📅 Live countdown to payday (adjustable to your own payday)
 - 💬 Hourly rotating motivational quotes
-- 😎 Two versions:
+- 😎 Two version quotes:
   - `developers`
   - `non-developers`
 
