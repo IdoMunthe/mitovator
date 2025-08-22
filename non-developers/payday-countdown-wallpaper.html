@@ -70,6 +70,20 @@
     #countdown {
       animation: float 4s ease-in-out infinite;
     }
+
+    @keyframes billFall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .money {
+      position: fixed;
+      pointer-events: none;
+      animation: billFall 2s linear forwards;
+      will-change: transform, opacity;
+    }
   </style>
 </head>
 
@@ -87,108 +101,108 @@
 
     // You can add your own motivation words if you want
     const motivators = [
-        "You’ve got this! 💪",
-        "One more day. One more chance.",
-        "Get rich or try working 😤",
-        "Your ancestors didn’t struggle for you to scroll TikTok all day.",
-        "Today’s a great day to outwork your own doubt.",
-        "Make your past self proud. Or at least confused.",
-        "Life’s tough, but so are you.",
-        "You’re the drama and the solution.",
-        "If not for success, do it for the coffee.",
-        "Adulting is hard. So make it worth it.",
-        "Don’t forget who you’re doing this for.",
-        "Work now, nap later.",
-        "Sleep is expensive. Hustle first.",
-        "One step closer to payday 💸",
-        "You’re not tired, you’re underchallenged.",
-        "Show them your boss era.",
-        "Not every hero wears pajamas... but you might.",
-        "Smile. You’re getting paid to survive.",
-        "Just pretend this is fun 😅",
-        "Work like nobody's watching.",
-        "A little effort now, a little more money later.",
-        "Make broke a phase, not a lifestyle.",
-        "Hey, at least it’s not a Monday meeting.",
-        "Your alarm betrayed you, but you're still here. That’s something.",
-        "Hold the line, wage warrior!",
-        "Don’t wish it were easier, wish you had a shorter meeting.",
-        "The world needs your magic. Even if it’s half asleep.",
-        "You’re not just working. You’re world-building.",
-        "When in doubt, look busy.",
-        "If vibes paid bills, you’d be a millionaire.",
-        "You’re closer than you think. Especially to burnout. 😅",
-        "Tough day? Tougher you.",
-        "Grind now. Gofood later.",
-        "Your future self will thank you. Maybe.",
-        "Focus. Then scroll.",
-        "Do it scared. Do it sleepy. But do it.",
-        "Work hard. Slay harder.",
-        "Another hour, another milestone.",
-        "Be the reason your boss logs off early.",
-        "You’re allowed to be tired. Just not to quit.",
-        "The clock’s moving anyway. So move with it.",
-        "Getting paid is self-care. 💆‍♂️💰",
-        "All this pain for nasi padang? Worth it.",
-        "Breaks are sacred. Meetings are not.",
-        "Motivation? Nah. Just fear of poverty.",
-        "Fake it till the payslip drops.",
-        "Nobody said it’d be easy. Just that it’d be 9 to 5.",
-        "You're not lazy, just selectively efficient.",
-        "Even your wallpaper believes in you 😌",
-        "The goal: get through the day with minimum chaos.",
-        "You survived Monday. You can survive this too. Oh wait..",
-        "Payday is near. Pretend to care until then.",
-        "You were not made for meetings, but here you are.",
-        "Each email answered is one step closer to the weekend.",
-        "Burnout? Nah, I’m just… smoldering.",
-        "You're not behind. You're just on a different playlist.",
-        "That report? Future you’s problem.",
-        "Just smile and nod. It confuses management.",
-        "You're basically running on caffeine and vibes.",
-        "It’s not procrastination. It’s prioritizing peace.",
-        "You didn’t get fired today. That’s a win.",
-        "Low energy. High potential.",
-        "Rise. Grind. Disassociate. Repeat.",
-        "You’re not quiet. You’re observantly surviving.",
-        "Yes, this meeting could have been an email.",
-        "Hang in there. Friday is watching.",
-        "There’s no 'I' in team. But there is in 'paid'.",
-        "If stress burned calories, you'd be shredded.",
-        "You're not lazy. you're just tragically underinspired.",
-        "Manifesting motivation… any minute now.",
-        "Breathe in ambition. Exhale ‘I hate this place.’",
-        "That raise is out there. Somewhere. Maybe.",
-        "The printer jammed. Again. Because it can.",
-        "Office politics: the hunger games of adulthood.",
-        "Today’s energy: minimal effort, maximum sarcasm.",
-        "You didn’t come this far to stop at lunch break.",
-        "Paycheck > Pride.",
-        "Mood: autopilot with a coffee upgrade.",
-        "You don’t hate work—you hate *meetings*.",
-        "This coffee is doing its best. So are you.",
-        "You’ve survived worse. Like group projects.",
-        "Maybe today’s not the day to quit. But soon.",
-        "“Let’s circle back” = emotional damage.",
-        "If eye rolls were money, you'd be rich.",
-        "Be proud. You showed up. Even if mentally, you didn’t.",
-        "Nothing personal. Just emotionally out of stock.",
-        "You’re a professional. At pretending you care.",
-        "Almost snapped. But didn’t. Growth.",
-        "The universe gives its toughest jobs to the emotionally unavailable.",
-        "Your desk is a war zone and your inbox is a battlefield.",
-        "Being an adult is mostly just recharging at lunch.",
-        "Don’t let capitalism win. Take your break.",
-        "You're underpaid but still overperforming. Iconic.",
-        "Today’s outfit: survival mode with style.",
-        "That fake smile? Oscar-worthy.",
-        "Congratulations! You're not sobbing in the bathroom. Progress.",
-        "Do your best. Or just… don’t get caught.",
-        "You're not being dramatic. The printer is possessed.",
-        "At least you get paid to be tired here.",
-        "Still employed. Still confused. Still going.",
-        "You deserve a raise. Or at least a nap."
-      ];
+      "You’ve got this! 💪",
+      "One more day. One more chance.",
+      "Get rich or try working 😤",
+      "Your ancestors didn’t struggle for you to scroll TikTok all day.",
+      "Today’s a great day to outwork your own doubt.",
+      "Make your past self proud. Or at least confused.",
+      "Life’s tough, but so are you.",
+      "You’re the drama and the solution.",
+      "If not for success, do it for the coffee.",
+      "Adulting is hard. So make it worth it.",
+      "Don’t forget who you’re doing this for.",
+      "Work now, nap later.",
+      "Sleep is expensive. Hustle first.",
+      "One step closer to payday 💸",
+      "You’re not tired, you’re underchallenged.",
+      "Show them your boss era.",
+      "Not every hero wears pajamas... but you might.",
+      "Smile. You’re getting paid to survive.",
+      "Just pretend this is fun 😅",
+      "Work like nobody's watching.",
+      "A little effort now, a little more money later.",
+      "Make broke a phase, not a lifestyle.",
+      "Hey, at least it’s not a Monday meeting.",
+      "Your alarm betrayed you, but you're still here. That’s something.",
+      "Hold the line, wage warrior!",
+      "Don’t wish it were easier, wish you had a shorter meeting.",
+      "The world needs your magic. Even if it’s half asleep.",
+      "You’re not just working. You’re world-building.",
+      "When in doubt, look busy.",
+      "If vibes paid bills, you’d be a millionaire.",
+      "You’re closer than you think. Especially to burnout. 😅",
+      "Tough day? Tougher you.",
+      "Grind now. Gofood later.",
+      "Your future self will thank you. Maybe.",
+      "Focus. Then scroll.",
+      "Do it scared. Do it sleepy. But do it.",
+      "Work hard. Slay harder.",
+      "Another hour, another milestone.",
+      "Be the reason your boss logs off early.",
+      "You’re allowed to be tired. Just not to quit.",
+      "The clock’s moving anyway. So move with it.",
+      "Getting paid is self-care. 💆‍♂️💰",
+      "All this pain for nasi padang? Worth it.",
+      "Breaks are sacred. Meetings are not.",
+      "Motivation? Nah. Just fear of poverty.",
+      "Fake it till the payslip drops.",
+      "Nobody said it’d be easy. Just that it’d be 9 to 5.",
+      "You're not lazy, just selectively efficient.",
+      "Even your wallpaper believes in you 😌",
+      "The goal: get through the day with minimum chaos.",
+      "You survived Monday. You can survive this too. Oh wait..",
+      "Payday is near. Pretend to care until then.",
+      "You were not made for meetings, but here you are.",
+      "Each email answered is one step closer to the weekend.",
+      "Burnout? Nah, I’m just… smoldering.",
+      "You're not behind. You're just on a different playlist.",
+      "That report? Future you’s problem.",
+      "Just smile and nod. It confuses management.",
+      "You're basically running on caffeine and vibes.",
+      "It’s not procrastination. It’s prioritizing peace.",
+      "You didn’t get fired today. That’s a win.",
+      "Low energy. High potential.",
+      "Rise. Grind. Disassociate. Repeat.",
+      "You’re not quiet. You’re observantly surviving.",
+      "Yes, this meeting could have been an email.",
+      "Hang in there. Friday is watching.",
+      "There’s no 'I' in team. But there is in 'paid'.",
+      "If stress burned calories, you'd be shredded.",
+      "You're not lazy. you're just tragically underinspired.",
+      "Manifesting motivation… any minute now.",
+      "Breathe in ambition. Exhale ‘I hate this place.’",
+      "That raise is out there. Somewhere. Maybe.",
+      "The printer jammed. Again. Because it can.",
+      "Office politics: the hunger games of adulthood.",
+      "Today’s energy: minimal effort, maximum sarcasm.",
+      "You didn’t come this far to stop at lunch break.",
+      "Paycheck > Pride.",
+      "Mood: autopilot with a coffee upgrade.",
+      "You don’t hate work—you hate *meetings*.",
+      "This coffee is doing its best. So are you.",
+      "You’ve survived worse. Like group projects.",
+      "Maybe today’s not the day to quit. But soon.",
+      "“Let’s circle back” = emotional damage.",
+      "If eye rolls were money, you'd be rich.",
+      "Be proud. You showed up. Even if mentally, you didn’t.",
+      "Nothing personal. Just emotionally out of stock.",
+      "You’re a professional. At pretending you care.",
+      "Almost snapped. But didn’t. Growth.",
+      "The universe gives its toughest jobs to the emotionally unavailable.",
+      "Your desk is a war zone and your inbox is a battlefield.",
+      "Being an adult is mostly just recharging at lunch.",
+      "Don’t let capitalism win. Take your break.",
+      "You're underpaid but still overperforming. Iconic.",
+      "Today’s outfit: survival mode with style.",
+      "That fake smile? Oscar-worthy.",
+      "Congratulations! You're not sobbing in the bathroom. Progress.",
+      "Do your best. Or just… don’t get caught.",
+      "You're not being dramatic. The printer is possessed.",
+      "At least you get paid to be tired here.",
+      "Still employed. Still confused. Still going.",
+      "You deserve a raise. Or at least a nap."
+    ];
 
 
     const countdownEl = document.getElementById("countdown");
@@ -295,6 +309,37 @@
 
       animate();
     }
+
+    // === Falling money trail on mouse move ===
+    let lastSpawn = 0;
+    const moneyEmojis = ["💸", "💲", "🤑", "💰", "👑"];
+
+    document.addEventListener("mousemove", (e) => {
+      const now = Date.now();
+      if (now - lastSpawn < 100) return; // throttle: 1 spawn per 100ms
+      lastSpawn = now;
+
+      const bill = document.createElement("div");
+      bill.textContent = moneyEmojis[Math.floor(Math.random() * moneyEmojis.length)];
+      bill.className = "money";
+
+      // random size 16px–40px
+      const size = Math.random() * 24 + 16;
+      bill.style.fontSize = `${size}px`;
+
+      // random rotation starting point
+      const startRot = Math.random() * 360;
+      bill.style.transform = `rotate(${startRot}deg)`;
+
+      // place at mouse position
+      bill.style.left = e.pageX + "px";
+      bill.style.top = e.pageY + "px";
+
+      document.body.appendChild(bill);
+
+      // cleanup after animation
+      setTimeout(() => bill.remove(), 2000);
+    });
 
   </script>
 </body>

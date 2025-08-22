@@ -70,6 +70,20 @@
     #countdown {
       animation: float 4s ease-in-out infinite;
     }
+
+    @keyframes billFall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .money {
+      position: fixed;
+      pointer-events: none;
+      animation: billFall 2s linear forwards;
+      will-change: transform, opacity;
+    }
   </style>
 </head>
 
@@ -87,113 +101,113 @@
 
     // You can add your own motivation words if you want
     const motivators = [
-        "You’ve got this! 💪",
-        "They don’t know me, son!",
-        "You are *this* close 🤏",
-        "Code like nobody's watching 👨‍💻",
-        "That coffee won’t drink itself ☕",
-        "Make money, not excuses 🤑",
-        "Just 1 day closer to Nasi Padang 😎",
-        "Your ancestors are watching 👀",
-        "Debug like a boss 🧠",
-        "It’s called hustle, sweetheart.",
-        "One bug at a time...",
-        "Deploy and pray 🙏",
-        "Build now, nap later 😴",
-        "Don’t get fired. Yet.",
-        "Imagine your boss seeing this.",
-        "You're not poor, you're pre-rich.",
-        "You're not tired, you're pre-motivated.",
-        "That laptop isn't gonna close itself.",
-        "Salary is near. So is burnout 😅",
-        "Keep going. Pretend you love it.",
-        "This is fine 🔥🐶",
-        "You'll laugh about this. Maybe.",
-        "Hey, at least it's not Monday. Oh wait..",
-        "Hold the line, soldier.",
-        "The deadline isn’t real anyway.",
-        "You are inevitable. Like bugs.",
-        "Think of the dopamine on payday.",
-        "Don’t let your memes be dreams.",
-        "They can’t fire all of us. Right?",
-        "Just push it to prod... what's the worst that could happen? 🤡",
-        "You either die fixing a bug, or live long enough to write legacy code.",
-        "It's not a bug, it's a feature 🐞✨",
-        "If it compiles, ship it 🚢",
-        "You broke it? You own it.",
-        "There’s no problem a restart can’t solve.",
-        "You’re the hero this repo deserves.",
-        "Stay calm and blame the frontend 😎",
-        "Rubber duck doesn’t approve your logic.",
-        "No tests. No fear. No job security.",
-        "You ever just... console.log your feelings?",
-        "If it works, don’t touch it!",
-        "Real devs don’t read docs.",
-        "Pull request vibes: 'pls don't review too hard 🙈'",
-        "Git commit -m 'idk lol'",
-        "Your code is working because you sacrificed sleep.",
-        "That function? Ancient black magic.",
-        "99 bugs in the code, take one down, 127 bugs in the code.",
-        "Today’s productivity brought to you by caffeine and panic.",
-        "Be proud. You made it compile.",
-        "Behind every great dev is 3,129 tabs open.",
-        "Do it for the merge badge 🥇",
-        "This sprint sprinted over me.",
-        "Dev: 'It works on my machine.' QA: 😐",
-        "You are underpaid and over-engineered.",
-        "Add one print, remove three problems.",
-        "Sleep is for the bugless.",
-        "Your brain is a better IDE than the actual IDE.",
-        "‘Clean code’ is just a lie we tell juniors.",
-        "Tabs vs Spaces. Choose your religion.",
-        "If debugging is the process of fixing bugs, then programming is the process of putting them in.",
-        "Why fix it now when you can refactor it forever?",
-        "Happiness is a green CI pipeline.",
-        "Your Jira ticket is now your personality.",
-        "The codebase is held together with hope and gitignore.",
-        "Be kind. Your coworker might be the one who wrote that regex.",
-        "This app is duct-taped and dreams.",
-        "Your PR got approved. Now run before they see it.",
-        "That moment when `npm install` breaks everything 😭",
-        "Codebase haunted. Blame the intern.",
-        "Not a bug. Just an undocumented feature.",
-        "Dark mode is a personality trait.",
-        "You can't crash if you don't launch.",
-        "One does not simply rename a variable.",
-        "Deploying on Friday? Bold move.",
-        "Meetings: because emails weren’t annoying enough.",
-        "Code once, cry forever.",
-        "This error has been brought to you by JavaScript.",
-        "Git rebase --chaos-mode",
-        "Your code deserves therapy.",
-        "There is no ‘done’. Just deployed enough.",
-        "Deadlines are suggestions, right?",
-        "Dev: 'This will take 1 hour.' Reality: 3 business days.",
-        "This bug looks familiar… oh right, I wrote it.",
-        "Burnout speedrun: 3, 2, 1...",
-        "All I want is a deploy that doesn’t break prod.",
-        "Reminder: you’re still Googling how promises work.",
-        "Your function is long enough to need chapters.",
-        "Coworker said 'just make it work'. So I did.",
-        "You call it spaghetti. I call it abstract logic flow.",
-        "My spirit animal is a commented-out block.",
-        "Every commit is a cry for help.",
-        "Wrote the code. Forgot why.",
-        "The code from GPT worked… and I don't know why.",
-        "Today’s build status: emotional.",
-        "You didn’t break it. You innovated unpredictably.",
-        "If code screams, mine’s a metal concert.",
-        "Coworker: 'Can you explain this?' Me: 'No.'",
-        "I debug in production because staging is a myth.",
-        "Devs don't age. We just get darker under the eyes.",
-        "This app is 80% technical debt and 20% duct tape.",
-        "You ever just deploy and pray?",
-        "When it compiles without error... something's wrong.",
-        "Senior devs: 80% deleting their old code, 20% regretting it.",
-        "It’s not late-night coding. It’s after-hours innovation.",
-        "If caffeine were currency, I’d be rich.",
-        "Too tired to code, too stubborn to quit."
-      ];
+      "You’ve got this! 💪",
+      "They don’t know me, son!",
+      "You are *this* close 🤏",
+      "Code like nobody's watching 👨‍💻",
+      "That coffee won’t drink itself ☕",
+      "Make money, not excuses 🤑",
+      "Just 1 day closer to Nasi Padang 😎",
+      "Your ancestors are watching 👀",
+      "Debug like a boss 🧠",
+      "It’s called hustle, sweetheart.",
+      "One bug at a time...",
+      "Deploy and pray 🙏",
+      "Build now, nap later 😴",
+      "Don’t get fired. Yet.",
+      "Imagine your boss seeing this.",
+      "You're not poor, you're pre-rich.",
+      "You're not tired, you're pre-motivated.",
+      "That laptop isn't gonna close itself.",
+      "Salary is near. So is burnout 😅",
+      "Keep going. Pretend you love it.",
+      "This is fine 🔥🐶",
+      "You'll laugh about this. Maybe.",
+      "Hey, at least it's not Monday. Oh wait..",
+      "Hold the line, soldier.",
+      "The deadline isn’t real anyway.",
+      "You are inevitable. Like bugs.",
+      "Think of the dopamine on payday.",
+      "Don’t let your memes be dreams.",
+      "They can’t fire all of us. Right?",
+      "Just push it to prod... what's the worst that could happen? 🤡",
+      "You either die fixing a bug, or live long enough to write legacy code.",
+      "It's not a bug, it's a feature 🐞✨",
+      "If it compiles, ship it 🚢",
+      "You broke it? You own it.",
+      "There’s no problem a restart can’t solve.",
+      "You’re the hero this repo deserves.",
+      "Stay calm and blame the frontend 😎",
+      "Rubber duck doesn’t approve your logic.",
+      "No tests. No fear. No job security.",
+      "You ever just... console.log your feelings?",
+      "If it works, don’t touch it!",
+      "Real devs don’t read docs.",
+      "Pull request vibes: 'pls don't review too hard 🙈'",
+      "Git commit -m 'idk lol'",
+      "Your code is working because you sacrificed sleep.",
+      "That function? Ancient black magic.",
+      "99 bugs in the code, take one down, 127 bugs in the code.",
+      "Today’s productivity brought to you by caffeine and panic.",
+      "Be proud. You made it compile.",
+      "Behind every great dev is 3,129 tabs open.",
+      "Do it for the merge badge 🥇",
+      "This sprint sprinted over me.",
+      "Dev: 'It works on my machine.' QA: 😐",
+      "You are underpaid and over-engineered.",
+      "Add one print, remove three problems.",
+      "Sleep is for the bugless.",
+      "Your brain is a better IDE than the actual IDE.",
+      "‘Clean code’ is just a lie we tell juniors.",
+      "Tabs vs Spaces. Choose your religion.",
+      "If debugging is the process of fixing bugs, then programming is the process of putting them in.",
+      "Why fix it now when you can refactor it forever?",
+      "Happiness is a green CI pipeline.",
+      "Your Jira ticket is now your personality.",
+      "The codebase is held together with hope and gitignore.",
+      "Be kind. Your coworker might be the one who wrote that regex.",
+      "This app is duct-taped and dreams.",
+      "Your PR got approved. Now run before they see it.",
+      "That moment when `npm install` breaks everything 😭",
+      "Codebase haunted. Blame the intern.",
+      "Not a bug. Just an undocumented feature.",
+      "Dark mode is a personality trait.",
+      "You can't crash if you don't launch.",
+      "One does not simply rename a variable.",
+      "Deploying on Friday? Bold move.",
+      "Meetings: because emails weren’t annoying enough.",
+      "Code once, cry forever.",
+      "This error has been brought to you by JavaScript.",
+      "Git rebase --chaos-mode",
+      "Your code deserves therapy.",
+      "There is no ‘done’. Just deployed enough.",
+      "Deadlines are suggestions, right?",
+      "Dev: 'This will take 1 hour.' Reality: 3 business days.",
+      "This bug looks familiar… oh right, I wrote it.",
+      "Burnout speedrun: 3, 2, 1...",
+      "All I want is a deploy that doesn’t break prod.",
+      "Reminder: you’re still Googling how promises work.",
+      "Your function is long enough to need chapters.",
+      "Coworker said 'just make it work'. So I did.",
+      "You call it spaghetti. I call it abstract logic flow.",
+      "My spirit animal is a commented-out block.",
+      "Every commit is a cry for help.",
+      "Wrote the code. Forgot why.",
+      "The code from GPT worked… and I don't know why.",
+      "Today’s build status: emotional.",
+      "You didn’t break it. You innovated unpredictably.",
+      "If code screams, mine’s a metal concert.",
+      "Coworker: 'Can you explain this?' Me: 'No.'",
+      "I debug in production because staging is a myth.",
+      "Devs don't age. We just get darker under the eyes.",
+      "This app is 80% technical debt and 20% duct tape.",
+      "You ever just deploy and pray?",
+      "When it compiles without error... something's wrong.",
+      "Senior devs: 80% deleting their old code, 20% regretting it.",
+      "It’s not late-night coding. It’s after-hours innovation.",
+      "If caffeine were currency, I’d be rich.",
+      "Too tired to code, too stubborn to quit."
+    ];
 
 
 
@@ -301,6 +315,38 @@
 
       animate();
     }
+
+    // === Falling money trail on mouse move ===
+    let lastSpawn = 0;
+    const moneyEmojis = ["💸", "💲", "🤑", "💰", "👑"];
+
+    document.addEventListener("mousemove", (e) => {
+      const now = Date.now();
+      if (now - lastSpawn < 100) return; // throttle: 1 spawn per 100ms
+      lastSpawn = now;
+
+      const bill = document.createElement("div");
+      bill.textContent = moneyEmojis[Math.floor(Math.random() * moneyEmojis.length)];
+      bill.className = "money";
+
+      // random size 16px–40px
+      const size = Math.random() * 24 + 16;
+      bill.style.fontSize = `${size}px`;
+
+      // random rotation starting point
+      const startRot = Math.random() * 360;
+      bill.style.transform = `rotate(${startRot}deg)`;
+
+      // place at mouse position
+      bill.style.left = e.pageX + "px";
+      bill.style.top = e.pageY + "px";
+
+      document.body.appendChild(bill);
+
+      // cleanup after animation
+      setTimeout(() => bill.remove(), 2000);
+    });
+
 
   </script>
 </body>
